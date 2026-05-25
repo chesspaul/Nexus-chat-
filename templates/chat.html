@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Chat — Nexus{% endblock %}
+
+{% block content %}
+<div class="chat-layout">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Nexus Chat</h2>
+        </div>
+        <div class="rooms">
+            <p class="rooms-label">Salas</p>
+            <a href="#" class="room active" data-room="general"># general</a>
+            <a href="#" class="room" data-room="programacion"># programación</a>
+            <a href="#" class="room" data-room="ajedrez"># ajedrez</a>
+        </div>
+
+        <div class="online-users">
+            <p class="rooms-label">Online</p>
+            <ul id="online-list"></ul>
+        </div>
+
+        <div class="user-info">
+            <span>{{ username }}</span>
+            <a href="{{ url_for('logout') }}" class="btn-logout">Salir</a>
+        </div>
+    </aside>
+
+    <main class="chat-area">
+        <div class="chat-header">
+            <h3># general</h3>
+        </div>
+        <div class="messages" id="messages"></div>
+        <div class="typing-indicator" id="typing-indicator"></div>
+        <div class="message-input">
+            <input type="text" placeholder="Escribe un mensaje..." id="msg-input">
+            <button class="btn-send" id="btn-send">Enviar</button>
+        </div>
+    </main>
+</div>
+
+<script>
+    const currentUsername= '{{username}}';
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+{% endblock %}
