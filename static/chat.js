@@ -27,14 +27,19 @@ socket.on('receive_message', function(data) {
     const initial= data.username.charAt(0).toUpperCase();
     const avatarColor= getAvatarColor(data.username);
 
+    const time = new Date(data.timestamp + 'Z').toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
     div.innerHTML = `
     <div class="msg-header">
-        <div class="avatar" style="background: ${avatarColor}"> ${initial}</div>
+        <div class="avatar" style="background: ${avatarColor}">${initial}</div>
         <span class="msg-user">${data.username}</span>
-        <span class="msg-time">${data.timestamp}</span>
+         <span class="msg-time">${time}</span>
     </div>
     <span class="msg-text">${data.message}</span>
-    `;   
+    `;
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
 });
@@ -182,3 +187,19 @@ document.addEventListener('visibilitychange', function(){
         document.title = 'Nexus Chat';
     }
 })
+
+// Dark/Light mode toggle
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme === 'light'){
+    document.body.classList.toggle('light');
+    themeToggle.textContent = '🌙';
+};
+
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    themeToggle.textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});

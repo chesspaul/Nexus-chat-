@@ -17,7 +17,7 @@ online_users = {}
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
-login_manager.login_message = 'Necesito iniciar sesión para entrar'
+login_manager.login_message = 'Necesitas iniciar sesión para entrar'
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -122,7 +122,7 @@ def on_join(data):
             'username': msg.username,
             'message': msg.content,
             'room': room,
-            'timestamp': msg.timestamp.strftime('%H:%M')
+            'timestamp': msg.timestamp.strftime('%Y-%m-%dT%H:%M:%S')
         })
 
     emit('status', {'msg': f'{current_user.username} entró a #{room}'}, to=room)
@@ -148,7 +148,7 @@ def handle_message(data):
         'username': username,
         'message': message,
         'room': room,
-        'timestamp': new_message.timestamp.strftime('%H:%M')
+        'timestamp': new_message.timestamp.strftime('%Y-%m-%dT%H:%M:%S')
     }, to=room)
 
     emit('new_message_notify', { 'room': room }, broadcast=True )
