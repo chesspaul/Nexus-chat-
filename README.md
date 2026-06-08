@@ -1,20 +1,20 @@
 # Nexus Chat 💬
 
-A real-time chat application built with Flask and WebSockets, inspired by Discord.
+Aplicación de chat en tiempo real construida con Flask y WebSockets, inspirada en Discord.
 
-## Features
+## Características
 
-- 🔐 User authentication (register, login, logout)
-- 💬 Real-time messaging with WebSockets
-- 🏠 Multiple chat rooms (general, programming, chess)
-- 📜 Message history persistent in database
-- 🟢 Online users list
-- 🔔 Unread message badges per room
-- 👤 User avatars with initials
-- ⌨️ Typing indicator
-- 🌙 Dark theme UI
+- 🔐 Autenticación de usuarios (registro, login, logout)
+- 💬 Mensajes en tiempo real con WebSockets
+- 🏠 Múltiples salas de chat (general, programación, ajedrez)
+- 📜 Historial de mensajes persistente en base de datos
+- 🟢 Lista de usuarios conectados en tiempo real
+- 🔔 Contador de mensajes no leídos por sala
+- 👤 Avatares con iniciales por usuario
+- ⌨️ Indicador de "está escribiendo..."
+- 🌙 Modo oscuro / claro
 
-## Tech Stack
+## Stack tecnológico
 
 **Backend**
 - Python / Flask
@@ -27,15 +27,15 @@ A real-time chat application built with Flask and WebSockets, inspired by Discor
 - HTML / CSS / JavaScript
 - Socket.IO client
 
-## Installation
+## Instalación
 
-1. Clone the repository
+1. Clona el repositorio
 ```bash
 git clone https://github.com/chesspaul/Nexus-chat-.git
 cd Nexus-chat-
 ```
 
-2. Create and activate virtual environment
+2. Crea y activa el entorno virtual
 ```bash
 python -m venv venv
 
@@ -46,24 +46,24 @@ venv\Scripts\Activate.ps1
 source venv/bin/activate
 ```
 
-3. Install dependencies
+3. Instala las dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Run the app
+4. Corre la aplicación
 ```bash
 python app.py
 ```
 
-5. Open your browser at `http://localhost:5000`
+5. Abre tu navegador en `http://localhost:5000`
 
-## Project Structure
+## Estructura del proyecto
 nexus-chat/
-├── app.py              ← entry point, routes and socket events
+├── app.py              ← punto de entrada, rutas y eventos de socket
 ├── requirements.txt
 ├── /models
-│   └── user.py         ← database models (User, Message)
+│   └── user.py         ← modelos de base de datos (User, Message)
 ├── /templates
 │   ├── base.html
 │   ├── login.html
@@ -75,8 +75,7 @@ nexus-chat/
 
 ## Roadmap
 
-- [ ] File and image sharing
-- [ ] PostgreSQL support
+- [ ] Compartir archivos e imágenes
+- [ ] Soporte para PostgreSQL
 - [ ] Docker
-- [ ] Deploy on Render
-- [ ] Light/Dark mode toggle
+- [ ] Deploy en Render
