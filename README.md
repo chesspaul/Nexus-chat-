@@ -59,6 +59,8 @@ python app.py
 5. Abre tu navegador en `http://localhost:5000`
 
 ## Estructura del proyecto
+
+```
 nexus-chat/
 ├── app.py              ← punto de entrada, rutas y eventos de socket
 ├── requirements.txt
@@ -70,8 +72,9 @@ nexus-chat/
 │   ├── register.html
 │   └── chat.html
 └── /static
-├── style.css
-└── chat.js
+    ├── style.css
+    └── chat.js
+```
 
 ## Roadmap
 
